@@ -1,14 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { handleAnswerQuestion } from '../actions/shared'
+
 
 class Poll extends Component {
 
   handleClick = (e) => {
+    const { dispatch, id, authedUser } = this.props
     e.preventDefault()
-    console.log(e.target.value)
+    const answer = e.target.value;
+    dispatch(handleAnswerQuestion({
+      qid: id,
+      authedUser,
+      answer
+    }))
   }
+
   render() {
     const { display, questions, id } = this.props
+
     return (
       <div>
         {display === 'unanswered'
