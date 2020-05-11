@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import PollResult from './PollResult'
 import { handleAnswerQuestion } from '../actions/shared'
 
 
@@ -23,22 +24,28 @@ class Poll extends Component {
     const { id } = this.props.match.params
     const didAnswer = answers[id] ? true : false
 
+
     if (users && questions && users[authedUser]) {
+      const optionOne = questions[id].optionOne
+      console.log(optionOne)
+      const optionTwo = questions[id].optionTwo
       return (
         <div>
          {didAnswer
-         ? <div>Result</div>
-       : <div>
-           Would you rather ...
-           <button onClick={this.handleClick} value={'optionOne'}>
-             {questions[id].optionOne.text}
-           </button>
-           or
-           <button onClick={this.handleClick} value={'optionTwo'}>
-             {questions[id].optionTwo.text}
-           </button>
-         </div>}
-       </div>
+        ? < PollResult
+            id={id}
+          />
+        : <div>
+            Would you rather ...
+            <button onClick={this.handleClick} value={'optionOne'}>
+              {optionOne.text}
+            </button>
+            or
+            <button onClick={this.handleClick} value={'optionTwo'}>
+              {optionTwo.text}
+            </button>
+          </div>}
+        </div>
      )
     }
     return (
