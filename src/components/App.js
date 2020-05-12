@@ -7,6 +7,8 @@ import { setAuthedUser } from '../actions/authedUser'
 import Dashboard from './Dashboard'
 import Poll from './Poll'
 import NewQuestion from './NewQuestion'
+import Leaderboard from './Leaderboard'
+import Nav from './Nav'
 
 const user = 'sarahedo'
 
@@ -22,9 +24,11 @@ class App extends Component {
     return (
       <Router>
           <div className='container'>
+          <Nav />
           <Route path='/' exact component={Dashboard}/>
           <Route path='/question/:id' component={Poll}/>
           <Route path='/add' component={NewQuestion}/>
+          <Route path='/leaderboard' component={Leaderboard}/>
         </div>
       </Router>
 
