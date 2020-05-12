@@ -16,12 +16,12 @@ class Question extends Component {
         />
         <div className='question-info'>
           <span>{author.name} asks</span>
-          <h4>Would you rather...</h4>
-          <p>{questions[id].optionOne.text}</p>
+          <h4>Would you rather</h4>
+          <p>{questions[id].optionOne.text} or...</p>
         </div>
         <Link to={`/question/${id}`}>
           <button>
-              OR...
+              View Poll
           </button>
         </Link>
       </div>

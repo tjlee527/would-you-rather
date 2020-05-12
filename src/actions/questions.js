@@ -1,6 +1,7 @@
-import { _getQuestions, _saveQuestionAnswer, _saveQuestion } from '../utils/_DATA.js'
+import { _getQuestions, _saveQuestion } from '../utils/_DATA.js'
 export const RECEIVE_QS = 'RECEIVE_QS'
 export const ANSWER_QS = 'ANSWER_QS'
+export const SAVE_QUESTION = 'SAVE_QUESTION'
 
 
 export function receiveQs (questions) {
@@ -27,4 +28,12 @@ export function answerQuestion({ qid, answer, authedUser }) {
     authedUser
   }
 }
+
+export function saveQuestion(data) {
+  return ({
+    type: SAVE_QUESTION,
+    data
+  })
+}
+
 

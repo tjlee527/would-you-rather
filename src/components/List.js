@@ -4,8 +4,7 @@ import Question from './Question'
 
 class List extends Component {
   render() {
-    const { display, list } = this.props
-    console.log(display)
+    const { list } = this.props
 
     return (
       <div>
@@ -13,7 +12,6 @@ class List extends Component {
         {list.map((id) => {
           return (
             <Question
-              display={display}
               id={id}
               key={id}
             />

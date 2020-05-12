@@ -6,6 +6,7 @@ import { handleInitialUsers } from '../actions/users'
 import { setAuthedUser } from '../actions/authedUser'
 import Dashboard from './Dashboard'
 import Poll from './Poll'
+import NewQuestion from './NewQuestion'
 
 const user = 'sarahedo'
 
@@ -23,6 +24,7 @@ class App extends Component {
           <div className='container'>
           <Route path='/' exact component={Dashboard}/>
           <Route path='/question/:id' component={Poll}/>
+          <Route path='/add' component={NewQuestion}/>
         </div>
       </Router>
 

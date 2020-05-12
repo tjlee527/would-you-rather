@@ -1,6 +1,7 @@
 import { _getUsers } from '../utils/_DATA.js'
 export const RECEIVE_USERS = 'RECEIVE_USERS'
 export const UPDATE_ANSWER_USER = 'UPDATE_ANSWER_USER'
+export const ADD_QUESTION_USER = 'ADD_QUESTION_USER'
 
 
 export function receiveUsers (users) {
@@ -25,5 +26,13 @@ export function handleUserAnswer ({ authedUser, qid, answer}) {
     authedUser,
     qid,
     answer
+  }
+}
+
+export function addQuestionUsers({id, author}) {
+  return {
+    type: ADD_QUESTION_USER,
+    id,
+    author
   }
 }

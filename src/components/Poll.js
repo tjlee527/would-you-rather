@@ -24,10 +24,8 @@ class Poll extends Component {
     const { id } = this.props.match.params
     const didAnswer = answers[id] ? true : false
 
-
     if (users && questions && users[authedUser]) {
       const optionOne = questions[id].optionOne
-      console.log(optionOne)
       const optionTwo = questions[id].optionTwo
       return (
         <div>
@@ -47,13 +45,13 @@ class Poll extends Component {
           </div>}
         </div>
      )
+    } else {
+      return (
+        <div>
+          Rendering
+        </div>
+      )
     }
-    return (
-      <div>
-        Rendering
-      </div>
-    )
-
   }
 }
 
