@@ -20,7 +20,7 @@ class Question extends Component {
           <p>{questions[id].optionOne.text} or...</p>
         </div>
         <Link to={`/question/${id}`}>
-          <button>
+          <button className='btn'>
               View Poll
           </button>
         </Link>

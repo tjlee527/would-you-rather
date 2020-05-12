@@ -11,7 +11,7 @@ class PollResult extends Component {
 
     return (
       <div>
-        <p>Your Answer: {answer}</p>
+        <p className='active'>Your Answer: {answer}</p>
         <div>
           <PollOptionDetail
             option='Option One'

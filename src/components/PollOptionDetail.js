@@ -2,8 +2,8 @@ import React from 'react'
 
 const PollOptionDetail = ({ text, option, optionCount, totalCount }) => {
   return (
-    <div>
-      <h4>{text}</h4>
+    <div className='poll-detail'>
+      <h4>{`${option}: ${text}`}</h4>
           <p>
             {Math.floor(100 * (optionCount/totalCount))}%
             <br></br>

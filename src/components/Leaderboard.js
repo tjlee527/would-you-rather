@@ -6,7 +6,7 @@ class Leaderboard extends Component {
 
   render() {
     const { orderedUsers, users } = this.props
-    console.log(orderedUsers)
+
     return (
       <div>
          <h3 className='center'>Leaderboard</h3>

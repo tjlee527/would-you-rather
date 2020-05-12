@@ -39,7 +39,7 @@ class NewQuestion extends Component {
     }
 
     return (
-      <div>
+      <div className='form'>
         <h3 className='center'>Add A New Question</h3>
         <form className='new-question'>
           <h4>Complete the question</h4>
@@ -56,7 +56,9 @@ class NewQuestion extends Component {
             onChange={(e) => this.handleChange(e, 'optionTwo')}
           />
           {optionOne && optionTwo &&
-            <button onClick={this.handleSubmit}>
+            <button
+              className='form-btn'
+              onClick={this.handleSubmit}>
               Submit
             </button>
           }

@@ -2,9 +2,9 @@ import React from 'react'
 
 const UserProfile = (props) => {
   const { name, avatarURL, answers, questions } = props.user
-  console.log(props.user)
-  const answeredQs = Object.keys(answers).length || 0
-  const askedQs = questions.length || 0
+
+  const answeredQs = Object.keys(answers).length
+  const askedQs = questions.length
   return (
     <div className='question'>
       <img

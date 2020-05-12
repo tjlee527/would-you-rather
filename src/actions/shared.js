@@ -20,7 +20,6 @@ export function handleNewQuestion(newQuestion) {
   return (dispatch) => {
     return (_saveQuestion(newQuestion))
       .then((data) => {
-        console.log(data)
         dispatch(saveQuestion(data))
         dispatch(addQuestionUsers(data))
       })

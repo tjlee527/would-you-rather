@@ -7,23 +7,31 @@ class Dashboard extends Component {
     displayAnswered: false
   }
 
-  handleButtonClick = (e) => {
+  handleClick = (e, displayAnswered) => {
     e.preventDefault()
-    const newDisplay = e.target.value === 'answered'
     this.setState({
-      displayAnswered: newDisplay
+      displayAnswered
     })
   }
 
   render() {
     const { answered, unanswered } = this.props
+    const { displayAnswered } = this.state
 
     return (
       <div className='dashboard-list'>
-        <div className='question-tabs'>
-          <button value='unanswered'onClick={this.handleButtonClick}>Unanswered Questions</button>
-          <button value='answered' onClick={this.handleButtonClick}>Answered Questions</button>
-        </div>
+        <nav className='dashboard-nav' id='dashboard-nav'>
+          <ul>
+            <li
+              className={displayAnswered ? 'none' : 'active'}
+              onClick={(e) => this.handleClick(e, false)} value='unanswered'>Unanswered
+            </li>
+            <li
+              className={displayAnswered ? 'active' : 'none'}
+              onClick={(e) => this.handleClick(e, true)} value='answered'>Answered
+            </li>
+          </ul>
+        </nav>
         {this.state.displayAnswered
         ? <List
             display={'answered'}

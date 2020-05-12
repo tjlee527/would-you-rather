@@ -1,7 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-export default function Nav () {
+export default function Nav (props) {
+  const { authedUser } = props
   return (
     <nav className='nav'>
       <ul>
@@ -20,6 +21,20 @@ export default function Nav () {
             Leaderboard
           </NavLink>
         </li>
+        {authedUser &&
+            <li>
+              <span>Hello, {authedUser.name}</span>
+            </li>
+        }
+        {authedUser &&
+          <li
+          style={{color:'red'}}>
+            <NavLink to='/logout'
+            activeClassName='active'>
+                Logout
+            </NavLink>
+          </li>
+        }
       </ul>
     </nav>
   )

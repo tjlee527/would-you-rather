@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PollResult from './PollResult'
+import { Redirect } from 'react-router-dom'
 import { handleAnswerQuestion } from '../actions/shared'
 
 
@@ -25,21 +26,33 @@ class Poll extends Component {
     const didAnswer = answers[id] ? true : false
 
     if (users && questions && users[authedUser]) {
+      if (!questions[id]) {
+        return <Redirect to='/404' />
+      }
+
       const optionOne = questions[id].optionOne
       const optionTwo = questions[id].optionTwo
       return (
-        <div>
+        <div className='form'>
          {didAnswer
         ? < PollResult
             id={id}
           />
-        : <div>
+        : <div className='center'>
             Would you rather ...
-            <button onClick={this.handleClick} value={'optionOne'}>
+            <button
+            className='btn'
+            onClick={this.handleClick}
+            value={'optionOne'}>
               {optionOne.text}
             </button>
-            or
-            <button onClick={this.handleClick} value={'optionTwo'}>
+            <p>
+              OR
+            </p>
+            <button
+            className='btn'
+            onClick={this.handleClick}
+            value={'optionTwo'}>
               {optionTwo.text}
             </button>
           </div>}
